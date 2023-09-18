@@ -24,11 +24,46 @@ function addRandomCard(hand) {
 let spelareKort = [];
 let datorKort = [];
 for (i = 0; i < 2; i++) {
-    addRandomCard(spelarKort);
+    addRandomCard(spelareKort);
     addRandomCard(datorKort);
 };
 
-Run = True;
-while (Run) {
+function countScore(hand) {
+    let count = 0;
+    let essCount = 0;
+    hand.forEach((kort) => {
+        if (kort[0] == "knekt") {
+            count += 10;
+        } else if (kort[0] == "dam") {
+            count += 10;
+        } else if (kort[0] == "kung") {
+            count += 10;
+        } else if (kort[0] == "ess") {
+            essCount++;
+        } else {
+            count += kort[0];
+        };
+    });
+    if (essCount) {
+        if (count + 10 + essCount < 22) {
+            count += 10 + essCount;
+        } else {
+            count += essCount;
+        };
+    };
+    return count;
+};
 
+let Run = true;
+while (Run) {
+    let val = prompt(`Datorns kort: ${datorKort[0]}
+    Dina kort: ${spelareKort}
+    t = ta ett kort; s = stå`);
+
+    if (val == "t") {
+        addRandomCard(spelareKort);
+        if (countScore(spelareKort) > 21) {
+            Run = false;
+        };
+    };
 };
