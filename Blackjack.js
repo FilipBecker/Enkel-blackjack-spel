@@ -13,3 +13,22 @@ function skapaKortlek(arr) {
     };
 };
 skapaKortlek(kortlek)
+
+function addRandomCard(hand) {
+    const num = Math.round(Math.random() * (kortlek.length - 1));
+    hand.push(kortlek[num]);
+    kortlek.splice(num, 1);
+
+};
+
+let spelareKort = [];
+let datorKort = [];
+for (i = 0; i < 2; i++) {
+    addRandomCard(spelarKort);
+    addRandomCard(datorKort);
+};
+
+Run = True;
+while (Run) {
+
+};
