@@ -2,17 +2,17 @@ let kortlek = [];
 function skapaKortlek(arr) {
     const typ = ["hjärter", "spader", "ruter", "klöver"];
     const spec = ["knekt", "dam", "kung", "ess"];
-    for (a = 0; a < 4; a++) {
+    typ.forEach((t) => {
         for (b = 2; b < 15; b++) {
             if (b > 10) {
-                kortlek.push([spec[b - 11], typ[a]]);
+                kortlek.push([spec[b - 11], t]);
             } else {
-                kortlek.push([b, typ[a]]);
+                kortlek.push([b, t]);
             };
         };
-    };
+    });
 };
-skapaKortlek(kortlek)
+skapaKortlek(kortlek);
 
 function addRandomCard(hand) {
     const num = Math.round(Math.random() * (kortlek.length - 1));
@@ -74,3 +74,19 @@ while (Run) {
         Run = false;
     };
 };
+
+let Vinnare = "";
+if (countScore(spelareKort) > 21) {
+    Vinnare = "Dator";
+} else if (countScore(spelareKort) > countScore(datorKort) || countScore(datorKort) > 21) {
+    Vinnare = "Spelaren";
+} else if (countScore(datorKort) > countScore(spelareKort)) {
+    Vinnare = "Dator";
+} else {
+    Vinnare = "Oavgjort";
+};
+
+prompt(`Datorns kort: ${datorKort}
+Dina kort: ${spelareKort}
+Vinnare: ${Vinnare}
+enter = exit`);
