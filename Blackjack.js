@@ -1,6 +1,6 @@
 let kortlek = [];
 function skapaKortlek(arr) {
-    const typ = ["hjärter", "spader", "ruter", "klöver"];
+    const typ = ["hjärter ", "spader ", "ruter ", "klöver "];
     const spec = ["knekt", "dam", "kung", "ess"];
     typ.forEach((t) => {
         for (b = 2; b < 15; b++) {
