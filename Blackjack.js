@@ -66,4 +66,11 @@ while (Run) {
             Run = false;
         };
     };
+
+    if (val == "s") {
+        while (countScore(datorKort) < 17) {
+            addRandomCard(datorKort);
+        };
+        Run = false;
+    };
 };
